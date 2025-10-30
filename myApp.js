@@ -28,10 +28,10 @@ app.get("/json", function(req, res) {
 
 //ruta hora
 app.get("/now", function(req, res, next){
-     req.user = getTheUserSync();  // Hypothetical synchronous operation
+    req.time = new Date().toString();
   next();
 }, function(req, res) {
-  res.send(req.user);
+  res.json({ time: req.time });
 });
 
 // Ruta GET /name
