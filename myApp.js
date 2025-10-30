@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 var express = require('express');
 var app = express();
 
@@ -10,7 +12,7 @@ app.get("/", function(req, res) {
 });
 
 // ruta JSON
-app.get("/json", function(req,res){
+app.get("/json", function(req, res){
     res.json({"message": "Hello json"});
 });
 
