@@ -11,7 +11,7 @@ app.get("/", function(req, res) {
 
 // ruta JSON
 app.get("/json", function(req,res){
-    res.json({"message":"Hello Json"});
+    res.json({"message": "Hello json"});
 });
 
 // No modifiques esta línea
