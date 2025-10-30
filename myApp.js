@@ -3,7 +3,7 @@ require("dotenv").config();
 var express = require('express');
 var app = express();
 
-// ✅ Root-level middleware para loguear todas las solicitudes
+// Root-level middleware para loguear todas las solicitudes
 app.use(function(req, res, next) {
   console.log(`${req.method} ${req.path} - ${req.ip}`);
   next();
@@ -31,6 +31,11 @@ app.get("/now", function(req, res, next) {
   next();
 }, function(req, res) {
   res.json({ time: req.time });
+});
+
+app.get("/:word/echo", function(req, res) {
+  const word = req.params.word;
+  res.json({ echo: word });
 });
 
 // Ruta GET /name
