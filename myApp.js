@@ -26,6 +26,14 @@ app.get("/json", function(req, res) {
   res.json({ "message": message });
 });
 
+//ruta hora
+app.get("/now", function(req, res, next){
+     req.user = getTheUserSync();  // Hypothetical synchronous operation
+  next();
+}, function(req, res) {
+  res.send(req.user);
+});
+
 // Ruta GET /name
 app.get("/name", function(req, res) {
   const { first, last } = req.query;
