@@ -9,6 +9,11 @@ app.get("/", function(req, res) {
   res.sendFile(__dirname + "/views/index.html");
 });
 
+// ruta JSON
+app.get("/json", function(req,res){
+    res.json({"message":"Hello Json"});
+});
+
 // No modifiques esta línea
 module.exports = app;
 
@@ -43,5 +48,3 @@ module.exports = app;
 
 
 
-
- module.exports = app;
