@@ -1,6 +1,8 @@
 require("dotenv").config();
 
 var express = require('express');
+var bodyParser = require('body-parser');
+
 var app = express();
 
 // Root-level middleware para loguear todas las solicitudes
@@ -11,6 +13,10 @@ app.use(function(req, res, next) {
 
 // Servir archivos estáticos desde la carpeta /public
 app.use("/public",express.static(__dirname + "/public"));
+
+// Middleware body-parser para POST requests
+app.use(bodyParser.urlencoded({ extended: false }));
+
 
 // Sirve el archivo HTML ubicado en /views/index.html
 app.get("/", function(req, res) {
